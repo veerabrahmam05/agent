@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "firstName": "John",
+      "registered_at": "2024-12-17T02:21:19.451415",
+      "id": 1.0,
+      "lastName": "Doe",
+      "age": 21.0,
+      "userName": "john693",
+      "email": "john.doe@example.com"
+    },
+    {
+      "lastName": "Smith",
+      "registered_at": "2025-03-01T02:21:19.451415",
+      "id": 2.0,
+      "firstName": "Jane",
+      "age": 42.0,
+      "userName": "jane811",
+      "email": "jane.smith@test.org"
+    },
+    {
+      "email": "mike.johnson@example.com",
+      "registered_at": "2025-08-03T02:21:19.451415",
+      "id": 3.0,
+      "firstName": "Mike",
+      "age": 37.0,
+      "userName": "mike282",
+      "lastName": "Johnson"
+    }
+  ],
+  "count": 3.0
+}
