@@ -48,7 +48,8 @@ def generate_sample_users(
     last_names: List[str],
     domains: List[str],
     min_age: int,
-    max_age: int
+    max_age: int,
+    city: List[str]
 ) -> dict:
     """Generate sample user data for testing or seeding applications."""
     if not first_names:
@@ -61,6 +62,8 @@ def generate_sample_users(
         return {"error": f"min_age {min_age} cannot be greater than max_age {max_age}."}
     if min_age < 0 or max_age < 0:
         return {"error": "Ages must be non-negative."}
+    if not city:
+        return {"error": "city list cannot be empty"}
 
     users = []
     count = len(first_names)
@@ -78,6 +81,7 @@ def generate_sample_users(
             "email": email,
             "userName": f"{first.lower()}{random.randint(100, 999)}",
             "age": random.randint(min_age, max_age),
+            "city": city[random.randint(0, len(city) - 1)],
             "registered_at": (datetime.now() - timedelta(days=random.randint(0, 365))).isoformat()
         }
         users.append(user)
@@ -91,10 +95,18 @@ def generate_sample_users(
 
 TOOLS = [write_json, read_json, generate_sample_users]
 
+prompt = (
+    "You are DataGen, a helpful assistant that generates sample data for applications. "
+    "To generate users, you need: first_names (list), last_names (list), domains (list), min_age, max_age, city(list). "
+    "Fill in these values yourself without asking for them "
+    "When asked to save users, first generate them with the tool, then immediately use write_json with the result. "
+    "If the user refers to 'those users' from a previous request, ask them to specify the details again."
+)
+
 # ✅ Use Gemini 2.5 Flash model
 llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 
-agent = create_agent(llm, tools=TOOLS)
+agent = create_agent(llm, tools=TOOLS, system_prompt=prompt)
 
 
 # ----------------------------

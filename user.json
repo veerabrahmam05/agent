@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "registered_at": "2025-02-05T21:11:13.047465",
+      "city": "Houston",
+      "id": 1.0,
+      "firstName": "Alice",
+      "lastName": "Smith",
+      "email": "alice.smith@example.com",
+      "age": 46.0,
+      "userName": "alice615"
+    },
+    {
+      "registered_at": "2025-03-07T21:11:13.047465",
+      "city": "New York",
+      "id": 2.0,
+      "firstName": "Bob",
+      "lastName": "Jones",
+      "email": "bob.jones@test.org",
+      "age": 32.0,
+      "userName": "bob917"
+    },
+    {
+      "city": "Phoenix",
+      "registered_at": "2025-06-25T21:11:13.047465",
+      "id": 3.0,
+      "lastName": "Williams",
+      "firstName": "Charlie",
+      "email": "charlie.williams@sample.net",
+      "age": 59.0,
+      "userName": "charlie832"
+    }
+  ],
+  "count": 3.0
+}
